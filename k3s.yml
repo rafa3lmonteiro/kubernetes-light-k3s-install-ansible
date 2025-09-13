@@ -1,0 +1,38 @@
+---
+# Playbook to install Kubernetes Light K3S environment on Linux server stand-alone
+
+- name: Install and configure K3S Kubernetes Light environment and Helm
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Desable SWAP memory on Linux server
+      command: swapoff -a
+
+    - name: Disable swap memory on /etc/fstab
+      replace:
+        path: /etc/fstab
+        regexp: '^([^#].*\sswap\s)'
+        replace: '# \1'
+        backup: yes
+
+    - name: Make a file /etc/profile.d/k3s.sh with kubeconfig variable environment
+      copy:
+        dest: /etc/profile.d/k3s.sh
+        content: |
+          export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Download and install K3s script
+      shell: curl -sfL https://get.k3s.io | sh -s - --write-kubeconfig-mode 644
+      args:
+        executable: /bin/bash
+
+    - name: Install Helm
+      shell: curl -fsSL https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+      args:
+        executable: /bin/bash
+
+...
