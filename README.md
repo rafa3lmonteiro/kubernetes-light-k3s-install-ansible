@@ -1,4 +1,4 @@
-# K3s Single-Node Install with Ansible
+# K3s Kubernetes Single-Node Install with Ansible
 
 A tiny Ansible playbook to install **K3s (lightweight Kubernetes)** on a Linux server via SSH.  
 Designed to be beginner-friendly and easy to copy/paste.
