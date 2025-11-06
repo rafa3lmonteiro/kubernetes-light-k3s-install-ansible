@@ -3,7 +3,7 @@
 A tiny Ansible playbook to install **K3S (lightweight Kubernetes)** on a Linux server via SSH.  
 Designed to be beginner-friendly and easy to copy/paste.
 
-> **Why Ansible if K3s already has an installer?**
+> **Why Ansible if K3S already has an installer?**
 > You can absolutely perform a quick, hands-on install of K3S using the official script at https://get.k3s.io. This project leverages that same installer but wraps it with Ansible so you can apply the exact, repeatable steps **at scale**—ideal for corporate environments where a **single‑node** Kubernetes makes sense. Typical use cases include lab environments, learning/testing, CI/automation runners, edge/IoT gateways, or any containerized workloads that don’t require the high availability of a full multi‑node cluster.
 
 > Playbook: `playbook-k3s-install.yml`
