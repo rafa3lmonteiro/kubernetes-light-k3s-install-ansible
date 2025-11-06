@@ -1,10 +1,10 @@
 # K3s Kubernetes Single-Node Install with Ansible
 
-A tiny Ansible playbook to install **K3s (lightweight Kubernetes)** on a Linux server via SSH.  
+A tiny Ansible playbook to install **K3S (lightweight Kubernetes)** on a Linux server via SSH.  
 Designed to be beginner-friendly and easy to copy/paste.
 
 > **Why Ansible if K3s already has an installer?**
-> You can absolutely perform a quick, hands-on install of K3s using the official script at https://get.k3s.io. This project leverages that same installer but wraps it with Ansible so you can apply the exact, repeatable steps **at scale**—ideal for corporate environments where a **single‑node** Kubernetes makes sense. Typical use cases include lab environments, learning/testing, CI/automation runners, edge/IoT gateways, or any containerized workloads that don’t require the high availability of a full multi‑node cluster.
+> You can absolutely perform a quick, hands-on install of K3S using the official script at https://get.k3s.io. This project leverages that same installer but wraps it with Ansible so you can apply the exact, repeatable steps **at scale**—ideal for corporate environments where a **single‑node** Kubernetes makes sense. Typical use cases include lab environments, learning/testing, CI/automation runners, edge/IoT gateways, or any containerized workloads that don’t require the high availability of a full multi‑node cluster.
 
 > Repo name suggestion: `kubernetes-light-k3s-install-ansible`  
 > Playbook entrypoint: `playbook-k3s-install.yml`
@@ -33,12 +33,12 @@ Designed to be beginner-friendly and easy to copy/paste.
 
 ## What this is
 
-This repository automates the **installation of a single-node K3s** on a target Linux server:
+This repository automates the **installation of a single-node K3S** on a target Linux server:
 
-- Installs K3s using the official installer (`get.k3s.io`)
-- Enables and starts the `k3s` systemd service
+- Installs K3S using the official installer (`get.k3s.io`)
+- Enables and starts the `k3S` systemd service
 - Leaves a kubeconfig at `/etc/rancher/k3s/k3s.yaml`
-- Installs `kubectl` on the node (bundled by K3s)
+- Installs `kubectl` on the node (bundled by K3S)
 - Install `helm` on the node to manage the installation of new kubernetes packages
   
 ---
@@ -50,7 +50,7 @@ This repository automates the **installation of a single-node K3s** on a target 
 - SSH access to the target host (key-based recommended)
 - Ansible installed
 
-**Target server (where K3s will run):**
+**Target server (where K3S will run):**
 - A fresh Linux VM/host with a user that can `sudo`
 - SSH open from the control machine
 - Internet access to reach `https://get.k3s.io` (for online installs)
@@ -212,7 +212,7 @@ kubectl get pods -A
 
 ## Uninstall / reset
 
-**Warning:** This is destructive; it removes K3s and local cluster data from the node.
+**Warning:** This is destructive; it removes K3S and local cluster data from the node.
 
 ```bash
 sudo /usr/local/bin/k3s-uninstall.sh
