@@ -245,6 +245,8 @@ This stops K3s and removes files created by the installer (PVCs on external stor
 
 ---
 
+## K3S project: https://k3s.io
+
 ## License
 
 This project is licensed under the terms of the repository’s `LICENSE` file.
