@@ -8,6 +8,7 @@ Designed to be beginner-friendly and easy to copy/paste.
 
 > Playbook: `playbook-k3s-install.yml`
 
+
 ---
 
 ## Contents
